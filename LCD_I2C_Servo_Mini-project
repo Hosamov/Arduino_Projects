@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Controlling a servo position using a potentiometer, and printing the potentiometer value to an LCD I2C device. //
 ////////////////////////////////////////////// Matt Coale's Solution////////////////////////////////////////////////
-// Most code in this sketch was copied from Peter Dalamaris (and others), and was compiled by Matt Coale, for the //
-// purpose of completing the mini-project in Lecture 52 of "Arduino Step by Step" taught by Peter Dalamaris.      //
+// Most code in this sketch was copied from Peter Dalmaris (and others), and was compiled by Matt Coale, for the  //
+// purpose of completing the mini-project in Lecture 52 of "Arduino Step by Step" taught by Peter Dalmaris.       //
 // For an image of the completed circuit, please visit: https://imgur.com/Ac5CxM2                                 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
