@@ -19,8 +19,9 @@ void setup() {
 void displayNumber(byte a) {
   //send the byte to be displayed on the LEDs
   digitalWrite(LATCH, LOW);
-  shiftOut(DATA, CLOCK, MSBFIRST, a); // First Shift Register
-  shiftOut(DATA, CLOCK, MSBFIRST, a); // 2nd Shift Register
+  shiftOut(DATA, CLOCK, MSBFIRST, a); 
+  // if using 2nd shift register:
+  // shiftOut(DATA, CLOCK, MSBFIRST, a); 
   digitalWrite(LATCH, HIGH);
 }
 
