@@ -1,7 +1,7 @@
 // 10/17/2017, by Hosamov
-// Electronic Dice
+// "Electronic Dice"
 
-//LED placement for Electronic Dice
+// LED pins & Placement:
 int topLeft = 2;
 int topRight = 3;
 int middleLeft = 4;
@@ -10,14 +10,19 @@ int middleRight = 5;
 int bottomLeft = 6;
 int bottomRight = 7;
 
+// Controller
 int trigger = 0;
+
+// Define variable for controlling random() function
 long r;
 
 //Button pin:
 int inputPin = 10;
 
 void setup() {
-  randomSeed(analogRead(0));
+  randomSeed(analogRead(0));  //Ensure the code has a random seed to work with
+
+  // Declare LED pins as outputs
   pinMode(topLeft, OUTPUT);
   pinMode(topRight, OUTPUT);
   pinMode(middleLeft, OUTPUT);
@@ -25,17 +30,20 @@ void setup() {
   pinMode(middleRight, OUTPUT);
   pinMode(bottomLeft, OUTPUT);
   pinMode(bottomRight, OUTPUT);
+  
+  // Declare button pin as an input
   pinMode(inputPin, INPUT);
 }
 
 void loop() {
-  if (digitalRead(inputPin) == HIGH && trigger == 0) {
-    trigger = 1;
-    r = random(1, 7);
-    int rolling;
-    // Cycle the LEDs for effect
-    for (rolling = 0; rolling < 100; rolling++) {
-    randomRoll(50);
+  if (digitalRead(inputPin) == HIGH && trigger == 0) {  // Cross-check the button with the controller variable
+    trigger = 1;                                        // Set controller("trigger") variable to value of 1 so code within if statement can continue to run
+    r = random(1, 7);                                   // Get a random number between 1 and 7
+
+    // Rolling effect:
+    int rolling;                                        
+    for (rolling = 0; rolling < 100; rolling++) {       // Roll through the dice 100 times, randomly, before landing on the final number
+    randomRoll(50);                                     // Call on randomRoll() function. Set delay.
     }
 
 
@@ -63,6 +71,7 @@ void loop() {
   }
 }
 
+// Set all OUTPUT pins to LOW when this function is called
 void clearPins() {
   digitalWrite(topLeft, LOW);
   digitalWrite(topRight, LOW);
@@ -72,7 +81,7 @@ void clearPins() {
   digitalWrite(bottomLeft, LOW);
   digitalWrite(bottomRight, LOW);
 }
-// Function for One
+
 void one() {
   digitalWrite(middle, HIGH);
 }
@@ -112,11 +121,12 @@ void six() {
   digitalWrite(bottomRight, HIGH);
 }
 
+// Rolling effect
 void randomRoll(int roll) {
   int r;
   r = random(1, 8);
   digitalWrite(r, HIGH);
-  if (roll > 0) {
+  if (roll > 0) {       
     delay(roll);
   }
   else if (roll == 0) {
@@ -125,6 +135,7 @@ void randomRoll(int roll) {
   }
   digitalWrite(r, LOW);
 }
+
 
 
 
